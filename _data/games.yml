@@ -1,43 +1,41 @@
-- title: "Elden Ring"
-  platform: PC
-  genre: action-rpg
-  status: completed
-  planned_date: 2022-02-25
-  completed_date: 2022-06-10
-  rating: 5
-  review: "The greatest open world game ever made. Every area feels handcrafted, every boss encounter is memorable, and the lore is endlessly fascinating. Took 120 hours and I'd do it again."
-  tags: [rpg, soulslike, open-world, favorite]
 
-- title: "Hollow Knight"
-  platform: PC
-  genre: metroidvania
-  status: completed
-  planned_date: 2023-01-01
-  completed_date: 2023-03-20
-  rating: 5
-  review: "Stunning hand-drawn art, tight controls, and an enormous world to explore. The atmosphere is melancholy and beautiful. Silksong cannot come soon enough."
-  tags: [metroidvania, indie, 2d, favorite]
 
-- title: "Baldur's Gate 3"
+- title: "The Witcher 3: Wild Hunt"
   platform: PC
   genre: crpg
   status: planned
-  planned_date: 2025-01-01
-  notes: "Game of the decade apparently. Need a free weekend."
-  tags: [rpg, crpg, dnd, co-op]
+  planned_date: 2026-07-01
+  notes: "Game of the decade apparently. "
+  tags: [rpg, open-world, story-rich]
 
 - title: "Disco Elysium"
   platform: PC
   genre: rpg
   status: planned
-  planned_date: 2025-04-01
+  planned_date: 2027-04-01
   notes: "Described as a novel more than a game. Right up my alley."
   tags: [rpg, narrative, political, unique]
 
-- title: "Neon White"
+- title: "Diablo 2: Resurrected"
   platform: PC
-  genre: action
+  genre: action-rpg
   status: planned
-  planned_date: 2025-05-01
-  notes: "Speed-running card-based platformer with anime aesthetics. Looks wild."
-  tags: [action, speedrun, indie, anime]
+  planned_date: 2026-12-01
+  notes: "I played the original Diablo 2 back in the day and loved it. Looking forward to revisiting this classic with updated graphics and quality of life improvements."
+  tags: [action, rpg, classic, nostalgia]
+
+- title: "NFS Most Wanted (2005)"
+  platform: PC
+  genre: racing
+  status: planned
+  planned_date: 2026-09-01
+  notes: "One of the best racing games of all time. I have fond memories of playing this game with friends and I'm excited to experience it again."
+  tags: [racing, classic, nostalgia]
+
+- title: "Red Dead Redemption 2"
+  platform: PC
+  genre: action-adventure
+  status: planned
+  planned_date: 2027-05-01
+  notes: "A masterpiece of storytelling and open-world design. I've heard so many great things about this game and I can't wait to dive into the world of the Wild West."
+  tags: [action, adventure, open-world, story-rich]
