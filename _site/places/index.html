@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="{{ page.theme | default: 'home' }}">
+<html lang="en" data-theme="places">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <title>Places — Life List</title>
+  <meta name="description" content="Places I want to visit and memories from the ones I've been to." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -620,30 +620,579 @@
   <!-- ── Navigation ── -->
   <nav class="page-content sticky top-0 z-50 border-b" style="background: color-mix(in srgb, var(--bg) 85%, transparent); border-color: var(--border); backdrop-filter: blur(12px);">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
-      <a href="{{ '/' | relative_url }}" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
+      <a href="/life-todo/" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
         Life List
       </a>
       <div class="flex items-center gap-5 text-sm font-medium">
-        <a href="{{ '/books' | relative_url }}" class="nav-link {% if page.theme == 'books' %}active{% endif %}">
-          {% if page.theme == 'books' %}📚{% else %}Books{% endif %}
+        <a href="/life-todo/books" class="nav-link ">
+          Books
         </a>
-        <a href="{{ '/movies-tv' | relative_url }}" class="nav-link {% if page.theme == 'movies' %}active{% endif %}">
-          {% if page.theme == 'movies' %}🎬{% else %}Movies & TV{% endif %}
+        <a href="/life-todo/movies-tv" class="nav-link ">
+          Movies & TV
         </a>
-        <a href="{{ '/games' | relative_url }}" class="nav-link {% if page.theme == 'games' %}active{% endif %}">
-          {% if page.theme == 'games' %}🕹️{% else %}Games{% endif %}
+        <a href="/life-todo/games" class="nav-link ">
+          Games
         </a>
-        <a href="{{ '/places' | relative_url }}" class="nav-link {% if page.theme == 'places' %}active{% endif %}">
-          {% if page.theme == 'places' %}🌍{% else %}Places{% endif %}
+        <a href="/life-todo/places" class="nav-link active">
+          🌍
         </a>
-        <a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains 'tags' %}active{% endif %}">Tags</a>
+        <a href="/life-todo/tags" class="nav-link ">Tags</a>
       </div>
     </div>
   </nav>
 
   <!-- ── Page content ── -->
   <main class="page-content">
-    {{ content }}
+    
+
+
+
+
+<!-- ── Category Hero ── -->
+
+<header class="page-content places-hero border-b" style="border-color: var(--border); padding: clamp(3rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 9vw, 7rem);">
+  <!-- sweeping diagonal handled by ::before pseudo -->
+  <!-- large ghosted word watermark -->
+  <div class="places-hero-watermark" aria-hidden="true">WORLD</div>
+  <!-- horizon accent line -->
+  <div class="places-hero-line"></div>
+
+  <div class="max-w-5xl mx-auto relative" style="z-index: 1;">
+    <!-- label pill -->
+    <div class="inline-flex items-center gap-2 mb-5">
+      <span style="display:inline-block; width:2.5rem; height:1.5px; background: linear-gradient(90deg, var(--accent), var(--accent-3));"></span>
+      <p class="text-xs font-semibold tracking-widest uppercase" style="color: var(--accent-3); letter-spacing: 0.18em;">Travel List</p>
+      <span style="display:inline-block; width:2.5rem; height:1.5px; background: linear-gradient(90deg, var(--accent-3), var(--accent-2));"></span>
+    </div>
+
+    <!-- headline: gradient sweep across the word -->
+    <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(3.5rem, 10vw, 7.5rem); letter-spacing: -0.04em; line-height: 0.92; margin-bottom: 1.5rem; background: linear-gradient(110deg, #22c55e 0%, #06b6d4 45%, #0ea5e9 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+      Places
+    </h1>
+
+    <!-- description with left accent rule -->
+    <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 36rem; line-height: 1.65; border-left: 2px solid var(--accent-3); padding-left: 1rem; margin-bottom: 2.5rem; border-image: linear-gradient(to bottom, var(--accent), var(--accent-3)) 1;">Places I want to visit and memories from the ones I've been to.</p>
+
+    <!-- stats row -->
+    <div class="flex flex-wrap gap-8" style="font-family: var(--font-heading);">
+      <div>
+        <div class="hero-stat-done" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em;">2</div>
+        <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem;">Visited</div>
+      </div>
+      <div style="width: 1px; background: var(--border); align-self: stretch;"></div>
+      <div>
+        <div class="hero-stat-plan" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em;">3</div>
+        <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem;">On the List</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ── Tag filter bar ── -->
+
+
+
+
+
+<div class="page-content px-6 py-4 border-b sticky top-14 z-40" style="background: color-mix(in srgb, var(--bg) 90%, transparent); border-color: var(--border); backdrop-filter: blur(8px);">
+  <div class="max-w-5xl mx-auto flex flex-wrap gap-2 items-center">
+    <span class="text-xs font-semibold tracking-widest uppercase mr-2 muted-text">Filter:</span>
+    <button class="tag-pill active-tag" data-tag="all" id="filter-all">all</button>
+    
+    <button class="tag-pill" data-tag="africa">africa</button>
+    
+    <button class="tag-pill" data-tag="asia">asia</button>
+    
+    <button class="tag-pill" data-tag="autumn">autumn</button>
+    
+    <button class="tag-pill" data-tag="coast">coast</button>
+    
+    <button class="tag-pill" data-tag="culture">culture</button>
+    
+    <button class="tag-pill" data-tag="desert">desert</button>
+    
+    <button class="tag-pill" data-tag="epic">epic</button>
+    
+    <button class="tag-pill" data-tag="europe">europe</button>
+    
+    <button class="tag-pill" data-tag="favorite">favorite</button>
+    
+    <button class="tag-pill" data-tag="food">food</button>
+    
+    <button class="tag-pill" data-tag="hiking">hiking</button>
+    
+    <button class="tag-pill" data-tag="italy">italy</button>
+    
+    <button class="tag-pill" data-tag="japan">japan</button>
+    
+    <button class="tag-pill" data-tag="medina">medina</button>
+    
+    <button class="tag-pill" data-tag="nature">nature</button>
+    
+    <button class="tag-pill" data-tag="photography">photography</button>
+    
+    <button class="tag-pill" data-tag="remote">remote</button>
+    
+    <button class="tag-pill" data-tag="south-america">south-america</button>
+    
+    <button class="tag-pill" data-tag="summer">summer</button>
+    
+    <button class="tag-pill" data-tag="temples">temples</button>
+    
+  </div>
+</div>
+
+
+<!-- ── Item list ── -->
+<div class="max-w-5xl mx-auto px-6 py-10" id="item-list-root">
+
+  
+  <section class="mb-14">
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      <span style="color: var(--accent-2);">On the Map</span>
+      <span class="text-sm font-normal muted-text">&mdash; 3 places</span>
+    </h2>
+    <div class="grid gap-5" id="planned-list">
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="south-america hiking nature epic" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Patagonia, Chile/Argentina
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        
+        <span class="capitalize">trek</span>
+        
+        
+        
+        <span>Chile</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Nov 01, 2025
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">Torres del Paine W Trek. Need to book huts 6 months in advance.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="south-america">#south-america</button>
+    
+    <button class="tag-pill" data-tag="hiking">#hiking</button>
+    
+    <button class="tag-pill" data-tag="nature">#nature</button>
+    
+    <button class="tag-pill" data-tag="epic">#epic</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="europe italy coast food summer" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Amalfi Coast, Italy
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        
+        <span class="capitalize">road-trip</span>
+        
+        
+        
+        <span>Italy</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jul 01, 2025
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">Summer road trip. Positano to Ravello.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="europe">#europe</button>
+    
+    <button class="tag-pill" data-tag="italy">#italy</button>
+    
+    <button class="tag-pill" data-tag="coast">#coast</button>
+    
+    <button class="tag-pill" data-tag="food">#food</button>
+    
+    <button class="tag-pill" data-tag="summer">#summer</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="europe nature remote hiking photography" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Faroe Islands
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        
+        <span class="capitalize">nature</span>
+        
+        
+        
+        <span>Faroe Islands</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jun 01, 2026
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">Dramatic cliffs, puffins, and no crowds. Need to time it for long summer days.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="europe">#europe</button>
+    
+    <button class="tag-pill" data-tag="nature">#nature</button>
+    
+    <button class="tag-pill" data-tag="remote">#remote</button>
+    
+    <button class="tag-pill" data-tag="hiking">#hiking</button>
+    
+    <button class="tag-pill" data-tag="photography">#photography</button>
+    
+  </div>
+  
+
+</div>
+
+      
+    </div>
+  </section>
+  
+
+  
+  <section>
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      <span style="color: var(--accent);">Been There</span>
+      <span class="text-sm font-normal muted-text">&mdash; 2 places</span>
+    </h2>
+    <div class="grid gap-5" id="done-list">
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="asia japan temples autumn favorite" data-status="completed">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Kyoto, Japan
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        
+        <span class="capitalize">city</span>
+        
+        
+        
+        <span>Japan</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-completed">
+          Completed
+        </span>
+        
+        <div class="star-rating mt-1" title="5/5">
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span>📍</span>
+            
+          
+        </div>
+        
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Mar 01, 2023
+    </span>
+    
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;Nov 15, 2023
+    </span>
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    The most beautiful city I've ever visited. The temples in autumn with red maple leaves are otherworldly. Fushimi Inari at 5am with no crowds is something I'll never forget.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="asia">#asia</button>
+    
+    <button class="tag-pill" data-tag="japan">#japan</button>
+    
+    <button class="tag-pill" data-tag="temples">#temples</button>
+    
+    <button class="tag-pill" data-tag="autumn">#autumn</button>
+    
+    <button class="tag-pill" data-tag="favorite">#favorite</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="africa desert medina culture" data-status="completed">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Morocco
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        
+        <span class="capitalize">country</span>
+        
+        
+        
+        <span>Morocco</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-completed">
+          Completed
+        </span>
+        
+        <div class="star-rating mt-1" title="4/5">
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span>📍</span>
+            
+          
+            
+              <span style="opacity:0.25;">📍</span>
+            
+          
+        </div>
+        
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jan 01, 2024
+    </span>
+    
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;Feb 20, 2024
+    </span>
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    Marrakech's medina is overwhelming in the best possible way. The Sahara overnight was magical — stars like I'd never seen. Chefchaouen is as blue and beautiful as the photos suggest.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="africa">#africa</button>
+    
+    <button class="tag-pill" data-tag="desert">#desert</button>
+    
+    <button class="tag-pill" data-tag="medina">#medina</button>
+    
+    <button class="tag-pill" data-tag="culture">#culture</button>
+    
+  </div>
+  
+
+</div>
+
+      
+    </div>
+  </section>
+  
+
+</div>
+
   </main>
 
   <!-- ── Footer ── -->
@@ -652,6 +1201,6 @@
   </footer>
 </div>
 
-<script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+<script src="/life-todo/assets/js/filter.js"></script>
 </body>
 </html>

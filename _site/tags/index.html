@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="{{ page.theme | default: 'home' }}">
+<html lang="en" data-theme="home">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <title>Tags — Life List</title>
+  <meta name="description" content="Books, Movies, Games, and Places — things I want to do, and thoughts on what I've done." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -620,30 +620,572 @@
   <!-- ── Navigation ── -->
   <nav class="page-content sticky top-0 z-50 border-b" style="background: color-mix(in srgb, var(--bg) 85%, transparent); border-color: var(--border); backdrop-filter: blur(12px);">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
-      <a href="{{ '/' | relative_url }}" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
+      <a href="/life-todo/" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
         Life List
       </a>
       <div class="flex items-center gap-5 text-sm font-medium">
-        <a href="{{ '/books' | relative_url }}" class="nav-link {% if page.theme == 'books' %}active{% endif %}">
-          {% if page.theme == 'books' %}📚{% else %}Books{% endif %}
+        <a href="/life-todo/books" class="nav-link ">
+          Books
         </a>
-        <a href="{{ '/movies-tv' | relative_url }}" class="nav-link {% if page.theme == 'movies' %}active{% endif %}">
-          {% if page.theme == 'movies' %}🎬{% else %}Movies & TV{% endif %}
+        <a href="/life-todo/movies-tv" class="nav-link ">
+          Movies & TV
         </a>
-        <a href="{{ '/games' | relative_url }}" class="nav-link {% if page.theme == 'games' %}active{% endif %}">
-          {% if page.theme == 'games' %}🕹️{% else %}Games{% endif %}
+        <a href="/life-todo/games" class="nav-link ">
+          Games
         </a>
-        <a href="{{ '/places' | relative_url }}" class="nav-link {% if page.theme == 'places' %}active{% endif %}">
-          {% if page.theme == 'places' %}🌍{% else %}Places{% endif %}
+        <a href="/life-todo/places" class="nav-link ">
+          Places
         </a>
-        <a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains 'tags' %}active{% endif %}">Tags</a>
+        <a href="/life-todo/tags" class="nav-link active">Tags</a>
       </div>
     </div>
   </nav>
 
   <!-- ── Page content ── -->
   <main class="page-content">
-    {{ content }}
+    <style>
+  .tag-index-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border: 1px solid #2a2a2a;
+    background: #1a1a1a;
+    color: #a5b4fc;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  }
+  .tag-index-pill:hover {
+    background: #222236;
+    border-color: #6366f1;
+    transform: translateY(-1px);
+  }
+  .tag-count {
+    font-size: 0.7rem;
+    background: #2a2a3e;
+    color: #818cf8;
+    border-radius: 999px;
+    padding: 1px 7px;
+    font-weight: 600;
+  }
+  .category-section h3 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.75rem;
+  }
+</style>
+
+<div class="max-w-5xl mx-auto px-6 py-12">
+  <p class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: #6366f1;">Browse by tag</p>
+  <h1 class="text-4xl font-bold mb-2" style="color: #e5e5e5;">All Tags</h1>
+  <p class="mb-10 text-sm" style="color: #888;">Click a tag to jump to that category's filtered view.</p>
+
+  
+  
+  
+  
+
+  
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+    <div class="category-section mb-10">
+      <h3>📚 Books</h3>
+      <div class="flex flex-wrap gap-2">
+        
+          
+          
+          <a href="/life-todo/books/#audiobook" class="tag-index-pill">
+            #audiobook
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#chinese-lit" class="tag-index-pill">
+            #chinese-lit
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#classic" class="tag-index-pill">
+            #classic
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#epic" class="tag-index-pill">
+            #epic
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#favorite" class="tag-index-pill">
+            #favorite
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#history" class="tag-index-pill">
+            #history
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#literary-fiction" class="tag-index-pill">
+            #literary-fiction
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#non-fiction" class="tag-index-pill">
+            #non-fiction
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#philosophy" class="tag-index-pill">
+            #philosophy
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#sci-fi" class="tag-index-pill">
+            #sci-fi
+            <span class="tag-count">3</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#trilogy" class="tag-index-pill">
+            #trilogy
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/books/#western" class="tag-index-pill">
+            #western
+            <span class="tag-count">1</span>
+          </a>
+        
+      </div>
+    </div>
+    
+  
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+    <div class="category-section mb-10">
+      <h3>🎬 Movies &amp; TV</h3>
+      <div class="flex flex-wrap gap-2">
+        
+          
+          
+          <a href="/life-todo/movies-tv/#drama" class="tag-index-pill">
+            #drama
+            <span class="tag-count">3</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#epic" class="tag-index-pill">
+            #epic
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#favorite" class="tag-index-pill">
+            #favorite
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#historical" class="tag-index-pill">
+            #historical
+            <span class="tag-count">3</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#imax" class="tag-index-pill">
+            #imax
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#japanese" class="tag-index-pill">
+            #japanese
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#noir" class="tag-index-pill">
+            #noir
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#nolan" class="tag-index-pill">
+            #nolan
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#sci-fi" class="tag-index-pill">
+            #sci-fi
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#thriller" class="tag-index-pill">
+            #thriller
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#tv" class="tag-index-pill">
+            #tv
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/movies-tv/#villeneuve" class="tag-index-pill">
+            #villeneuve
+            <span class="tag-count">1</span>
+          </a>
+        
+      </div>
+    </div>
+    
+  
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+    <div class="category-section mb-10">
+      <h3>🕹️ Games</h3>
+      <div class="flex flex-wrap gap-2">
+        
+          
+          
+          <a href="/life-todo/games/#2d" class="tag-index-pill">
+            #2d
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#action" class="tag-index-pill">
+            #action
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#anime" class="tag-index-pill">
+            #anime
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#co-op" class="tag-index-pill">
+            #co-op
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#crpg" class="tag-index-pill">
+            #crpg
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#dnd" class="tag-index-pill">
+            #dnd
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#favorite" class="tag-index-pill">
+            #favorite
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#indie" class="tag-index-pill">
+            #indie
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#metroidvania" class="tag-index-pill">
+            #metroidvania
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#narrative" class="tag-index-pill">
+            #narrative
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#open-world" class="tag-index-pill">
+            #open-world
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#political" class="tag-index-pill">
+            #political
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#rpg" class="tag-index-pill">
+            #rpg
+            <span class="tag-count">3</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#soulslike" class="tag-index-pill">
+            #soulslike
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#speedrun" class="tag-index-pill">
+            #speedrun
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/games/#unique" class="tag-index-pill">
+            #unique
+            <span class="tag-count">1</span>
+          </a>
+        
+      </div>
+    </div>
+    
+  
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+    <div class="category-section mb-10">
+      <h3>🌍 Places</h3>
+      <div class="flex flex-wrap gap-2">
+        
+          
+          
+          <a href="/life-todo/places/#africa" class="tag-index-pill">
+            #africa
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#asia" class="tag-index-pill">
+            #asia
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#autumn" class="tag-index-pill">
+            #autumn
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#coast" class="tag-index-pill">
+            #coast
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#culture" class="tag-index-pill">
+            #culture
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#desert" class="tag-index-pill">
+            #desert
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#epic" class="tag-index-pill">
+            #epic
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#europe" class="tag-index-pill">
+            #europe
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#favorite" class="tag-index-pill">
+            #favorite
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#food" class="tag-index-pill">
+            #food
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#hiking" class="tag-index-pill">
+            #hiking
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#italy" class="tag-index-pill">
+            #italy
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#japan" class="tag-index-pill">
+            #japan
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#medina" class="tag-index-pill">
+            #medina
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#nature" class="tag-index-pill">
+            #nature
+            <span class="tag-count">2</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#photography" class="tag-index-pill">
+            #photography
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#remote" class="tag-index-pill">
+            #remote
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#south-america" class="tag-index-pill">
+            #south-america
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#summer" class="tag-index-pill">
+            #summer
+            <span class="tag-count">1</span>
+          </a>
+        
+          
+          
+          <a href="/life-todo/places/#temples" class="tag-index-pill">
+            #temples
+            <span class="tag-count">1</span>
+          </a>
+        
+      </div>
+    </div>
+    
+  
+</div>
+
   </main>
 
   <!-- ── Footer ── -->
@@ -652,6 +1194,6 @@
   </footer>
 </div>
 
-<script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+<script src="/life-todo/assets/js/filter.js"></script>
 </body>
 </html>

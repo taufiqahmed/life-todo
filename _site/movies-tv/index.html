@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="{{ page.theme | default: 'home' }}">
+<html lang="en" data-theme="movies">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <title>Movies & TV — Life List</title>
+  <meta name="description" content="Films and series on my radar, and reviews of the ones I've seen." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -620,30 +620,567 @@
   <!-- ── Navigation ── -->
   <nav class="page-content sticky top-0 z-50 border-b" style="background: color-mix(in srgb, var(--bg) 85%, transparent); border-color: var(--border); backdrop-filter: blur(12px);">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
-      <a href="{{ '/' | relative_url }}" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
+      <a href="/life-todo/" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
         Life List
       </a>
       <div class="flex items-center gap-5 text-sm font-medium">
-        <a href="{{ '/books' | relative_url }}" class="nav-link {% if page.theme == 'books' %}active{% endif %}">
-          {% if page.theme == 'books' %}📚{% else %}Books{% endif %}
+        <a href="/life-todo/books" class="nav-link ">
+          Books
         </a>
-        <a href="{{ '/movies-tv' | relative_url }}" class="nav-link {% if page.theme == 'movies' %}active{% endif %}">
-          {% if page.theme == 'movies' %}🎬{% else %}Movies & TV{% endif %}
+        <a href="/life-todo/movies-tv" class="nav-link active">
+          🎬
         </a>
-        <a href="{{ '/games' | relative_url }}" class="nav-link {% if page.theme == 'games' %}active{% endif %}">
-          {% if page.theme == 'games' %}🕹️{% else %}Games{% endif %}
+        <a href="/life-todo/games" class="nav-link ">
+          Games
         </a>
-        <a href="{{ '/places' | relative_url }}" class="nav-link {% if page.theme == 'places' %}active{% endif %}">
-          {% if page.theme == 'places' %}🌍{% else %}Places{% endif %}
+        <a href="/life-todo/places" class="nav-link ">
+          Places
         </a>
-        <a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains 'tags' %}active{% endif %}">Tags</a>
+        <a href="/life-todo/tags" class="nav-link ">Tags</a>
       </div>
     </div>
   </nav>
 
   <!-- ── Page content ── -->
   <main class="page-content">
-    {{ content }}
+    
+
+
+
+
+<!-- ── Category Hero ── -->
+
+<header class="page-content py-12 px-6 border-b relative overflow-hidden" style="border-color: var(--border);">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: var(--accent);">Watchlist</p>
+    <h1 class="text-5xl md:text-6xl font-bold mb-3 leading-tight" style="font-family: var(--font-heading);">Movies & TV</h1>
+    <p class="text-lg max-w-xl" style="color: var(--text-muted);">Films and series on my radar, and reviews of the ones I've seen.</p>
+    <div class="flex gap-6 mt-6 text-sm font-medium">
+      <span><span class="accent-text font-bold text-xl">3</span> <span class="muted-text">completed</span></span>
+      <span><span style="color: var(--text);" class="font-bold text-xl">2</span> <span class="muted-text">planned</span></span>
+    </div>
+  </div>
+
+  
+  
+  <div class="absolute right-6 top-4 font-bold select-none" style="font-family: var(--font-heading); color: var(--accent); font-size: clamp(5rem, 18vw, 14rem); line-height: 1; opacity: 0.07; letter-spacing: 0.06em; text-transform: uppercase;">FILM</div>
+  
+  
+</header>
+
+
+<!-- ── Tag filter bar ── -->
+
+
+
+
+
+<div class="page-content px-6 py-4 border-b sticky top-14 z-40" style="background: color-mix(in srgb, var(--bg) 90%, transparent); border-color: var(--border); backdrop-filter: blur(8px);">
+  <div class="max-w-5xl mx-auto flex flex-wrap gap-2 items-center">
+    <span class="text-xs font-semibold tracking-widest uppercase mr-2 muted-text">Filter:</span>
+    <button class="tag-pill active-tag" data-tag="all" id="filter-all">all</button>
+    
+    <button class="tag-pill" data-tag="drama">drama</button>
+    
+    <button class="tag-pill" data-tag="epic">epic</button>
+    
+    <button class="tag-pill" data-tag="favorite">favorite</button>
+    
+    <button class="tag-pill" data-tag="historical">historical</button>
+    
+    <button class="tag-pill" data-tag="imax">imax</button>
+    
+    <button class="tag-pill" data-tag="japanese">japanese</button>
+    
+    <button class="tag-pill" data-tag="noir">noir</button>
+    
+    <button class="tag-pill" data-tag="nolan">nolan</button>
+    
+    <button class="tag-pill" data-tag="sci-fi">sci-fi</button>
+    
+    <button class="tag-pill" data-tag="thriller">thriller</button>
+    
+    <button class="tag-pill" data-tag="tv">tv</button>
+    
+    <button class="tag-pill" data-tag="villeneuve">villeneuve</button>
+    
+  </div>
+</div>
+
+
+<!-- ── Item list ── -->
+<div class="max-w-5xl mx-auto px-6 py-10" id="item-list-root">
+
+  
+  <section class="mb-14">
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      <span style="color: var(--accent-2);">COMING SOON</span>
+      <span class="text-sm font-normal muted-text">&mdash; 2 titles</span>
+    </h2>
+    <div class="grid gap-5" id="planned-list">
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="historical drama tv japanese" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Shogun (2024)
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        
+        <span class="capitalize">tv</span>
+        <span>2024</span>
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Feb 01, 2025
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">Won everything at the Emmys. Apparently a masterpiece.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="historical">#historical</button>
+    
+    <button class="tag-pill" data-tag="drama">#drama</button>
+    
+    <button class="tag-pill" data-tag="tv">#tv</button>
+    
+    <button class="tag-pill" data-tag="japanese">#japanese</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="drama historical epic" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        The Brutalist
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        <span>dir. Brady Corbet</span>
+        <span class="capitalize">movie</span>
+        <span>2024</span>
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Mar 01, 2025
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">3.5 hour epic. Making time for this one.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="drama">#drama</button>
+    
+    <button class="tag-pill" data-tag="historical">#historical</button>
+    
+    <button class="tag-pill" data-tag="epic">#epic</button>
+    
+  </div>
+  
+
+</div>
+
+      
+    </div>
+  </section>
+  
+
+  
+  <section>
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      <span style="color: var(--accent);">NOW SHOWING</span>
+      <span class="text-sm font-normal muted-text">&mdash; 3 titles</span>
+    </h2>
+    <div class="grid gap-5" id="done-list">
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="drama historical nolan imax" data-status="completed">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Oppenheimer
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        <span>dir. Christopher Nolan</span>
+        <span class="capitalize">movie</span>
+        <span>2023</span>
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-completed">
+          Completed
+        </span>
+        
+        <div class="star-rating mt-1" title="5/5">
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+        </div>
+        
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jul 20, 2023
+    </span>
+    
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;Jul 22, 2023
+    </span>
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    A stunning achievement. The IMAX sequences are genuinely jaw-dropping and Cillian Murphy is extraordinary. The non-linear structure keeps the tension unbearable throughout.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="drama">#drama</button>
+    
+    <button class="tag-pill" data-tag="historical">#historical</button>
+    
+    <button class="tag-pill" data-tag="nolan">#nolan</button>
+    
+    <button class="tag-pill" data-tag="imax">#imax</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="sci-fi thriller tv favorite" data-status="completed">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Severance
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        
+        <span class="capitalize">tv</span>
+        <span>2022</span>
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-completed">
+          Completed
+        </span>
+        
+        <div class="star-rating mt-1" title="5/5">
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+        </div>
+        
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Mar 01, 2022
+    </span>
+    
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;Apr 15, 2022
+    </span>
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    One of the most original shows in years. The premise is brilliant and the execution is flawless. Season 1 ended on a cliffhanger that haunted me for months.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="sci-fi">#sci-fi</button>
+    
+    <button class="tag-pill" data-tag="thriller">#thriller</button>
+    
+    <button class="tag-pill" data-tag="tv">#tv</button>
+    
+    <button class="tag-pill" data-tag="favorite">#favorite</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="sci-fi noir villeneuve favorite" data-status="completed">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Blade Runner 2049
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        
+        <span>dir. Denis Villeneuve</span>
+        <span class="capitalize">movie</span>
+        <span>2017</span>
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-completed">
+          Completed
+        </span>
+        
+        <div class="star-rating mt-1" title="5/5">
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+        </div>
+        
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Aug 01, 2024
+    </span>
+    
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;Sep 05, 2024
+    </span>
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    Patient, gorgeous, and profound. Roger Deakins' cinematography is the best I've ever seen. A rare sequel that expands on the original's ideas.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="sci-fi">#sci-fi</button>
+    
+    <button class="tag-pill" data-tag="noir">#noir</button>
+    
+    <button class="tag-pill" data-tag="villeneuve">#villeneuve</button>
+    
+    <button class="tag-pill" data-tag="favorite">#favorite</button>
+    
+  </div>
+  
+
+</div>
+
+      
+    </div>
+  </section>
+  
+
+</div>
+
   </main>
 
   <!-- ── Footer ── -->
@@ -652,6 +1189,6 @@
   </footer>
 </div>
 
-<script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+<script src="/life-todo/assets/js/filter.js"></script>
 </body>
 </html>

@@ -8,6 +8,45 @@ layout: default
 {% assign done     = items | where: "status", "completed" %}
 
 <!-- ── Category Hero ── -->
+{% if page.theme == "places" %}
+<header class="page-content places-hero border-b" style="border-color: var(--border); padding: clamp(3rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 9vw, 7rem);">
+  <!-- sweeping diagonal handled by ::before pseudo -->
+  <!-- large ghosted word watermark -->
+  <div class="places-hero-watermark" aria-hidden="true">WORLD</div>
+  <!-- horizon accent line -->
+  <div class="places-hero-line"></div>
+
+  <div class="max-w-5xl mx-auto relative" style="z-index: 1;">
+    <!-- label pill -->
+    <div class="inline-flex items-center gap-2 mb-5">
+      <span style="display:inline-block; width:2.5rem; height:1.5px; background: linear-gradient(90deg, var(--accent), var(--accent-3));"></span>
+      <p class="text-xs font-semibold tracking-widest uppercase" style="color: var(--accent-3); letter-spacing: 0.18em;">{{ page.category_label }}</p>
+      <span style="display:inline-block; width:2.5rem; height:1.5px; background: linear-gradient(90deg, var(--accent-3), var(--accent-2));"></span>
+    </div>
+
+    <!-- headline: gradient sweep across the word -->
+    <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(3.5rem, 10vw, 7.5rem); letter-spacing: -0.04em; line-height: 0.92; margin-bottom: 1.5rem; background: linear-gradient(110deg, #22c55e 0%, #06b6d4 45%, #0ea5e9 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+      {{ page.title }}
+    </h1>
+
+    <!-- description with left accent rule -->
+    <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 36rem; line-height: 1.65; border-left: 2px solid var(--accent-3); padding-left: 1rem; margin-bottom: 2.5rem; border-image: linear-gradient(to bottom, var(--accent), var(--accent-3)) 1;">{{ page.description }}</p>
+
+    <!-- stats row -->
+    <div class="flex flex-wrap gap-8" style="font-family: var(--font-heading);">
+      <div>
+        <div class="hero-stat-done" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em;">{{ done.size }}</div>
+        <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem;">Visited</div>
+      </div>
+      <div style="width: 1px; background: var(--border); align-self: stretch;"></div>
+      <div>
+        <div class="hero-stat-plan" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em;">{{ planned.size }}</div>
+        <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem;">On the List</div>
+      </div>
+    </div>
+  </div>
+</header>
+{% else %}
 <header class="page-content py-12 px-6 border-b relative overflow-hidden" style="border-color: var(--border);">
   <div class="max-w-5xl mx-auto">
     <p class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: var(--accent);">{{ page.category_label }}</p>
@@ -20,18 +59,16 @@ layout: default
   </div>
 
   {% if page.theme == "games" %}
-  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading); color: var(--accent);">&gt;_</div>
+  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading); color: var(--accent);">🕹</div>
   {% endif %}
   {% if page.theme == "movies" %}
-  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading); color: var(--accent);">▶</div>
+  <div class="absolute right-6 top-4 font-bold select-none" style="font-family: var(--font-heading); color: var(--accent); font-size: clamp(5rem, 18vw, 14rem); line-height: 1; opacity: 0.07; letter-spacing: 0.06em; text-transform: uppercase;">FILM</div>
   {% endif %}
   {% if page.theme == "books" %}
-  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading);">§</div>
-  {% endif %}
-  {% if page.theme == "places" %}
-  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading); color: var(--accent);">⌖</div>
+  <div class="absolute right-6 top-4 font-bold select-none" style="font-family: var(--font-heading); color: var(--accent); font-size: clamp(5rem, 18vw, 14rem); line-height: 1; opacity: 0.07; font-style: italic;">Read</div>
   {% endif %}
 </header>
+{% endif %}
 
 <!-- ── Tag filter bar ── -->
 {% assign all_tags = "" | split: "" %}
@@ -59,28 +96,28 @@ layout: default
 <!-- ── Item list ── -->
 <div class="max-w-5xl mx-auto px-6 py-10" id="item-list-root">
 
-  {% if done.size > 0 %}
+  {% if planned.size > 0 %}
   <section class="mb-14">
     <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
-      {% if page.theme == "games" %}<span class="accent-text">[COMPLETED]</span>{% else %}<span class="accent-text">Completed</span>{% endif %}
-      <span class="text-sm font-normal muted-text">&mdash; {{ done.size }} {{ page.item_label | default: "items" }}</span>
+      {% if page.theme == "games" %}<span style="color: var(--accent-2);">▷ QUEUE</span>{% elsif page.theme == "movies" %}<span style="color: var(--accent-2);">COMING SOON</span>{% elsif page.theme == "books" %}<span style="color: var(--text-muted); font-style: italic;">On the Shelf</span>{% elsif page.theme == "places" %}<span style="color: var(--accent-2);">On the Map</span>{% else %}Planned{% endif %}
+      <span class="text-sm font-normal muted-text">&mdash; {{ planned.size }} {{ page.item_label | default: "items" }}</span>
     </h2>
-    <div class="grid gap-5" id="done-list">
-      {% for item in done %}
+    <div class="grid gap-5" id="planned-list">
+      {% for item in planned %}
         {% include item_card.html item=item %}
       {% endfor %}
     </div>
   </section>
   {% endif %}
 
-  {% if planned.size > 0 %}
+  {% if done.size > 0 %}
   <section>
     <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
-      {% if page.theme == "games" %}<span class="muted-text">[PLANNED]</span>{% else %}Planned{% endif %}
-      <span class="text-sm font-normal muted-text">&mdash; {{ planned.size }} {{ page.item_label | default: "items" }}</span>
+      {% if page.theme == "games" %}<span class="accent-text">★ CLEARED</span>{% elsif page.theme == "movies" %}<span style="color: var(--accent);">NOW SHOWING</span>{% elsif page.theme == "books" %}<span style="color: var(--accent); font-style: italic;">Read</span>{% elsif page.theme == "places" %}<span style="color: var(--accent);">Been There</span>{% else %}<span class="accent-text">Completed</span>{% endif %}
+      <span class="text-sm font-normal muted-text">&mdash; {{ done.size }} {{ page.item_label | default: "items" }}</span>
     </h2>
-    <div class="grid gap-5" id="planned-list">
-      {% for item in planned %}
+    <div class="grid gap-5" id="done-list">
+      {% for item in done %}
         {% include item_card.html item=item %}
       {% endfor %}
     </div>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="{{ page.theme | default: 'home' }}">
+<html lang="en" data-theme="books">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <title>Books — Life List</title>
+  <meta name="description" content="Books I want to read, am reading, and have finished — with notes on what I thought." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -620,30 +620,527 @@
   <!-- ── Navigation ── -->
   <nav class="page-content sticky top-0 z-50 border-b" style="background: color-mix(in srgb, var(--bg) 85%, transparent); border-color: var(--border); backdrop-filter: blur(12px);">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
-      <a href="{{ '/' | relative_url }}" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
+      <a href="/life-todo/" class="nav-link font-semibold text-base tracking-wide" style="color: var(--accent); font-family: var(--font-heading);">
         Life List
       </a>
       <div class="flex items-center gap-5 text-sm font-medium">
-        <a href="{{ '/books' | relative_url }}" class="nav-link {% if page.theme == 'books' %}active{% endif %}">
-          {% if page.theme == 'books' %}📚{% else %}Books{% endif %}
+        <a href="/life-todo/books" class="nav-link active">
+          📚
         </a>
-        <a href="{{ '/movies-tv' | relative_url }}" class="nav-link {% if page.theme == 'movies' %}active{% endif %}">
-          {% if page.theme == 'movies' %}🎬{% else %}Movies & TV{% endif %}
+        <a href="/life-todo/movies-tv" class="nav-link ">
+          Movies & TV
         </a>
-        <a href="{{ '/games' | relative_url }}" class="nav-link {% if page.theme == 'games' %}active{% endif %}">
-          {% if page.theme == 'games' %}🕹️{% else %}Games{% endif %}
+        <a href="/life-todo/games" class="nav-link ">
+          Games
         </a>
-        <a href="{{ '/places' | relative_url }}" class="nav-link {% if page.theme == 'places' %}active{% endif %}">
-          {% if page.theme == 'places' %}🌍{% else %}Places{% endif %}
+        <a href="/life-todo/places" class="nav-link ">
+          Places
         </a>
-        <a href="{{ '/tags' | relative_url }}" class="nav-link {% if page.url contains 'tags' %}active{% endif %}">Tags</a>
+        <a href="/life-todo/tags" class="nav-link ">Tags</a>
       </div>
     </div>
   </nav>
 
   <!-- ── Page content ── -->
   <main class="page-content">
-    {{ content }}
+    
+
+
+
+
+<!-- ── Category Hero ── -->
+
+<header class="page-content py-12 px-6 border-b relative overflow-hidden" style="border-color: var(--border);">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: var(--accent);">Reading List</p>
+    <h1 class="text-5xl md:text-6xl font-bold mb-3 leading-tight" style="font-family: var(--font-heading);">Books</h1>
+    <p class="text-lg max-w-xl" style="color: var(--text-muted);">Books I want to read, am reading, and have finished — with notes on what I thought.</p>
+    <div class="flex gap-6 mt-6 text-sm font-medium">
+      <span><span class="accent-text font-bold text-xl">2</span> <span class="muted-text">completed</span></span>
+      <span><span style="color: var(--text);" class="font-bold text-xl">3</span> <span class="muted-text">planned</span></span>
+    </div>
+  </div>
+
+  
+  
+  
+  <div class="absolute right-6 top-4 font-bold select-none" style="font-family: var(--font-heading); color: var(--accent); font-size: clamp(5rem, 18vw, 14rem); line-height: 1; opacity: 0.07; font-style: italic;">Read</div>
+  
+</header>
+
+
+<!-- ── Tag filter bar ── -->
+
+
+
+
+
+<div class="page-content px-6 py-4 border-b sticky top-14 z-40" style="background: color-mix(in srgb, var(--bg) 90%, transparent); border-color: var(--border); backdrop-filter: blur(8px);">
+  <div class="max-w-5xl mx-auto flex flex-wrap gap-2 items-center">
+    <span class="text-xs font-semibold tracking-widest uppercase mr-2 muted-text">Filter:</span>
+    <button class="tag-pill active-tag" data-tag="all" id="filter-all">all</button>
+    
+    <button class="tag-pill" data-tag="audiobook">audiobook</button>
+    
+    <button class="tag-pill" data-tag="chinese-lit">chinese-lit</button>
+    
+    <button class="tag-pill" data-tag="classic">classic</button>
+    
+    <button class="tag-pill" data-tag="epic">epic</button>
+    
+    <button class="tag-pill" data-tag="favorite">favorite</button>
+    
+    <button class="tag-pill" data-tag="history">history</button>
+    
+    <button class="tag-pill" data-tag="literary-fiction">literary-fiction</button>
+    
+    <button class="tag-pill" data-tag="non-fiction">non-fiction</button>
+    
+    <button class="tag-pill" data-tag="philosophy">philosophy</button>
+    
+    <button class="tag-pill" data-tag="sci-fi">sci-fi</button>
+    
+    <button class="tag-pill" data-tag="trilogy">trilogy</button>
+    
+    <button class="tag-pill" data-tag="western">western</button>
+    
+  </div>
+</div>
+
+
+<!-- ── Item list ── -->
+<div class="max-w-5xl mx-auto px-6 py-10" id="item-list-root">
+
+  
+  <section class="mb-14">
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      <span style="color: var(--text-muted); font-style: italic;">On the Shelf</span>
+      <span class="text-sm font-normal muted-text">&mdash; 3 books</span>
+    </h2>
+    <div class="grid gap-5" id="planned-list">
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="sci-fi classic epic" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Dune
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        <span>by Frank Herbert</span>
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jan 01, 2025
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">Before the third movie comes out.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="sci-fi">#sci-fi</button>
+    
+    <button class="tag-pill" data-tag="classic">#classic</button>
+    
+    <button class="tag-pill" data-tag="epic">#epic</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="non-fiction history philosophy" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Sapiens
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        <span>by Yuval Noah Harari</span>
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Mar 01, 2025
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">Everyone keeps recommending this.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="non-fiction">#non-fiction</button>
+    
+    <button class="tag-pill" data-tag="history">#history</button>
+    
+    <button class="tag-pill" data-tag="philosophy">#philosophy</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="literary-fiction western classic" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Blood Meridian
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        <span>by Cormac McCarthy</span>
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jun 01, 2025
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">Apparently one of the most brutal and beautiful books ever written.</p>
+  
+
+  <!-- Review (completed items) -->
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="literary-fiction">#literary-fiction</button>
+    
+    <button class="tag-pill" data-tag="western">#western</button>
+    
+    <button class="tag-pill" data-tag="classic">#classic</button>
+    
+  </div>
+  
+
+</div>
+
+      
+    </div>
+  </section>
+  
+
+  
+  <section>
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      <span style="color: var(--accent); font-style: italic;">Read</span>
+      <span class="text-sm font-normal muted-text">&mdash; 2 books</span>
+    </h2>
+    <div class="grid gap-5" id="done-list">
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="sci-fi favorite audiobook" data-status="completed">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Project Hail Mary
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        <span>by Andy Weir</span>
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-completed">
+          Completed
+        </span>
+        
+        <div class="star-rating mt-1" title="5/5">
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+        </div>
+        
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jan 15, 2024
+    </span>
+    
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;Mar 20, 2024
+    </span>
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    An absolute joy from start to finish. The science is fascinating, the humor is perfectly timed, and the relationship at the heart of the story is genuinely moving. One of my favorite reads in years.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="sci-fi">#sci-fi</button>
+    
+    <button class="tag-pill" data-tag="favorite">#favorite</button>
+    
+    <button class="tag-pill" data-tag="audiobook">#audiobook</button>
+    
+  </div>
+  
+
+</div>
+
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="sci-fi chinese-lit trilogy" data-status="completed">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        The Three-Body Problem
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        <span>by Liu Cixin</span>
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-completed">
+          Completed
+        </span>
+        
+        <div class="star-rating mt-1" title="4/5">
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span>★</span>
+            
+          
+            
+              <span style="opacity:0.25;">★</span>
+            
+          
+        </div>
+        
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Feb 01, 2024
+    </span>
+    
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;May 10, 2024
+    </span>
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    Dense and ambitious. The first half is slow but the second half opens up into something truly epic. The scale of imagination is unlike anything I've read.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="sci-fi">#sci-fi</button>
+    
+    <button class="tag-pill" data-tag="chinese-lit">#chinese-lit</button>
+    
+    <button class="tag-pill" data-tag="trilogy">#trilogy</button>
+    
+  </div>
+  
+
+</div>
+
+      
+    </div>
+  </section>
+  
+
+</div>
+
   </main>
 
   <!-- ── Footer ── -->
@@ -652,6 +1149,6 @@
   </footer>
 </div>
 
-<script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+<script src="/life-todo/assets/js/filter.js"></script>
 </body>
 </html>
