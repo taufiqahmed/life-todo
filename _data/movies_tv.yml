@@ -1,0 +1,48 @@
+- title: "Oppenheimer"
+  type: movie
+  year: 2023
+  director: "Christopher Nolan"
+  status: completed
+  planned_date: 2023-07-20
+  completed_date: 2023-07-22
+  rating: 5
+  review: "A stunning achievement. The IMAX sequences are genuinely jaw-dropping and Cillian Murphy is extraordinary. The non-linear structure keeps the tension unbearable throughout."
+  tags: [drama, historical, nolan, imax]
+
+- title: "Severance"
+  type: tv
+  year: 2022
+  status: completed
+  planned_date: 2022-03-01
+  completed_date: 2022-04-15
+  rating: 5
+  review: "One of the most original shows in years. The premise is brilliant and the execution is flawless. Season 1 ended on a cliffhanger that haunted me for months."
+  tags: [sci-fi, thriller, tv, favorite]
+
+- title: "Blade Runner 2049"
+  type: movie
+  year: 2017
+  director: "Denis Villeneuve"
+  status: completed
+  planned_date: 2024-08-01
+  completed_date: 2024-09-05
+  rating: 5
+  review: "Patient, gorgeous, and profound. Roger Deakins' cinematography is the best I've ever seen. A rare sequel that expands on the original's ideas."
+  tags: [sci-fi, noir, villeneuve, favorite]
+
+- title: "Shogun (2024)"
+  type: tv
+  year: 2024
+  status: planned
+  planned_date: 2025-02-01
+  notes: "Won everything at the Emmys. Apparently a masterpiece."
+  tags: [historical, drama, tv, japanese]
+
+- title: "The Brutalist"
+  type: movie
+  year: 2024
+  director: "Brady Corbet"
+  status: planned
+  planned_date: 2025-03-01
+  notes: "3.5 hour epic. Making time for this one."
+  tags: [drama, historical, epic]

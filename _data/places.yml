@@ -1,0 +1,43 @@
+- title: "Kyoto, Japan"
+  country: Japan
+  type: city
+  status: completed
+  planned_date: 2023-03-01
+  completed_date: 2023-11-15
+  rating: 5
+  review: "The most beautiful city I've ever visited. The temples in autumn with red maple leaves are otherworldly. Fushimi Inari at 5am with no crowds is something I'll never forget."
+  tags: [asia, japan, temples, autumn, favorite]
+
+- title: "Patagonia, Chile/Argentina"
+  country: Chile
+  type: trek
+  status: planned
+  planned_date: 2025-11-01
+  notes: "Torres del Paine W Trek. Need to book huts 6 months in advance."
+  tags: [south-america, hiking, nature, epic]
+
+- title: "Amalfi Coast, Italy"
+  country: Italy
+  type: road-trip
+  status: planned
+  planned_date: 2025-07-01
+  notes: "Summer road trip. Positano to Ravello."
+  tags: [europe, italy, coast, food, summer]
+
+- title: "Morocco"
+  country: Morocco
+  type: country
+  status: completed
+  planned_date: 2024-01-01
+  completed_date: 2024-02-20
+  rating: 4
+  review: "Marrakech's medina is overwhelming in the best possible way. The Sahara overnight was magical — stars like I'd never seen. Chefchaouen is as blue and beautiful as the photos suggest."
+  tags: [africa, desert, medina, culture]
+
+- title: "Faroe Islands"
+  country: Faroe Islands
+  type: nature
+  status: planned
+  planned_date: 2026-06-01
+  notes: "Dramatic cliffs, puffins, and no crowds. Need to time it for long summer days."
+  tags: [europe, nature, remote, hiking, photography]

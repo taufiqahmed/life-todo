@@ -1,0 +1,19 @@
+title: "Life List"
+description: "Books, Movies, Games, and Places — things I want to do, and thoughts on what I've done."
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+
+# Collections are not needed — using _data files

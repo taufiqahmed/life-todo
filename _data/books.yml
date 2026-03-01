@@ -1,0 +1,38 @@
+- title: "Project Hail Mary"
+  author: "Andy Weir"
+  status: completed
+  planned_date: 2024-01-15
+  completed_date: 2024-03-20
+  rating: 5
+  review: "An absolute joy from start to finish. The science is fascinating, the humor is perfectly timed, and the relationship at the heart of the story is genuinely moving. One of my favorite reads in years."
+  tags: [sci-fi, favorite, audiobook]
+
+- title: "The Three-Body Problem"
+  author: "Liu Cixin"
+  status: completed
+  planned_date: 2024-02-01
+  completed_date: 2024-05-10
+  rating: 4
+  review: "Dense and ambitious. The first half is slow but the second half opens up into something truly epic. The scale of imagination is unlike anything I've read."
+  tags: [sci-fi, chinese-lit, trilogy]
+
+- title: "Dune"
+  author: "Frank Herbert"
+  status: planned
+  planned_date: 2025-01-01
+  notes: "Before the third movie comes out."
+  tags: [sci-fi, classic, epic]
+
+- title: "Sapiens"
+  author: "Yuval Noah Harari"
+  status: planned
+  planned_date: 2025-03-01
+  notes: "Everyone keeps recommending this."
+  tags: [non-fiction, history, philosophy]
+
+- title: "Blood Meridian"
+  author: "Cormac McCarthy"
+  status: planned
+  planned_date: 2025-06-01
+  notes: "Apparently one of the most brutal and beautiful books ever written."
+  tags: [literary-fiction, western, classic]

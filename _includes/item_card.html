@@ -1,0 +1,86 @@
+{% assign item = include.item %}
+{% assign tag_str = item.tags | join: " " %}
+
+<div class="item-card p-5 md:p-6" data-tags="{{ tag_str }}" data-status="{{ item.status }}">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-heading); color: var(--text);">
+        {{ item.title }}
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        {% if item.author %}<span>by {{ item.author }}</span>{% endif %}
+        {% if item.director %}<span>dir. {{ item.director }}</span>{% endif %}
+        {% if item.type %}<span class="capitalize">{{ item.type }}</span>{% endif %}
+        {% if item.year %}<span>{{ item.year }}</span>{% endif %}
+        {% if item.platform %}<span>{{ item.platform }}</span>{% endif %}
+        {% if item.genre %}<span class="capitalize">{{ item.genre }}</span>{% endif %}
+        {% if item.country %}<span>{{ item.country }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      {% if item.status == "completed" %}
+        <span class="status-badge status-completed">
+          {% if page.theme == "games" %}[COMPLETED]{% else %}Completed{% endif %}
+        </span>
+        {% if item.rating %}
+        <div class="star-rating mt-1" title="{{ item.rating }}/5">
+          {% for i in (1..5) %}
+            {% if i <= item.rating %}
+              <span>{% if page.theme == "places" %}📍{% else %}★{% endif %}</span>
+            {% else %}
+              <span style="opacity:0.25;">{% if page.theme == "places" %}📍{% else %}★{% endif %}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      {% else %}
+        <span class="status-badge status-planned">
+          {% if page.theme == "games" %}[PENDING]{% else %}Planned{% endif %}
+        </span>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    {% if item.planned_date %}
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;{{ item.planned_date | date: "%b %d, %Y" }}
+    </span>
+    {% endif %}
+    {% if item.completed_date %}
+    <span>
+      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
+      &ensp;{{ item.completed_date | date: "%b %d, %Y" }}
+    </span>
+    {% endif %}
+  </div>
+
+  <!-- Notes (planned items) -->
+  {% if item.notes and item.status == "planned" %}
+  <p class="text-sm italic mb-3" style="color: var(--text-muted);">{{ item.notes }}</p>
+  {% endif %}
+
+  <!-- Review (completed items) -->
+  {% if item.review %}
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    {{ item.review }}
+  </blockquote>
+  {% endif %}
+
+  <!-- Tags -->
+  {% if item.tags.size > 0 %}
+  <div class="flex flex-wrap gap-2 mt-2">
+    {% for tag in item.tags %}
+    <button class="tag-pill" data-tag="{{ tag }}">#{{ tag }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</div>

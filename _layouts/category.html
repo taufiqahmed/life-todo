@@ -1,0 +1,90 @@
+---
+layout: default
+---
+
+{% assign data_key = page.data_key %}
+{% assign items    = site.data[data_key] %}
+{% assign planned  = items | where: "status", "planned" %}
+{% assign done     = items | where: "status", "completed" %}
+
+<!-- ── Category Hero ── -->
+<header class="page-content py-12 px-6 border-b relative overflow-hidden" style="border-color: var(--border);">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: var(--accent);">{{ page.category_label }}</p>
+    <h1 class="text-5xl md:text-6xl font-bold mb-3 leading-tight" style="font-family: var(--font-heading);">{{ page.title }}</h1>
+    <p class="text-lg max-w-xl" style="color: var(--text-muted);">{{ page.description }}</p>
+    <div class="flex gap-6 mt-6 text-sm font-medium">
+      <span><span class="accent-text font-bold text-xl">{{ done.size }}</span> <span class="muted-text">completed</span></span>
+      <span><span style="color: var(--text);" class="font-bold text-xl">{{ planned.size }}</span> <span class="muted-text">planned</span></span>
+    </div>
+  </div>
+
+  {% if page.theme == "games" %}
+  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading); color: var(--accent);">&gt;_</div>
+  {% endif %}
+  {% if page.theme == "movies" %}
+  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading); color: var(--accent);">▶</div>
+  {% endif %}
+  {% if page.theme == "books" %}
+  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading);">§</div>
+  {% endif %}
+  {% if page.theme == "places" %}
+  <div class="absolute right-8 top-8 text-8xl font-bold opacity-5 select-none" style="font-family: var(--font-heading); color: var(--accent);">⌖</div>
+  {% endif %}
+</header>
+
+<!-- ── Tag filter bar ── -->
+{% assign all_tags = "" | split: "" %}
+{% for item in items %}
+  {% if item.tags %}
+    {% for tag in item.tags %}
+      {% assign all_tags = all_tags | push: tag %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{% assign all_tags = all_tags | uniq | sort %}
+
+{% if all_tags.size > 0 %}
+<div class="page-content px-6 py-4 border-b sticky top-14 z-40" style="background: color-mix(in srgb, var(--bg) 90%, transparent); border-color: var(--border); backdrop-filter: blur(8px);">
+  <div class="max-w-5xl mx-auto flex flex-wrap gap-2 items-center">
+    <span class="text-xs font-semibold tracking-widest uppercase mr-2 muted-text">Filter:</span>
+    <button class="tag-pill active-tag" data-tag="all" id="filter-all">all</button>
+    {% for tag in all_tags %}
+    <button class="tag-pill" data-tag="{{ tag }}">{{ tag }}</button>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- ── Item list ── -->
+<div class="max-w-5xl mx-auto px-6 py-10" id="item-list-root">
+
+  {% if done.size > 0 %}
+  <section class="mb-14">
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      {% if page.theme == "games" %}<span class="accent-text">[COMPLETED]</span>{% else %}<span class="accent-text">Completed</span>{% endif %}
+      <span class="text-sm font-normal muted-text">&mdash; {{ done.size }} {{ page.item_label | default: "items" }}</span>
+    </h2>
+    <div class="grid gap-5" id="done-list">
+      {% for item in done %}
+        {% include item_card.html item=item %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if planned.size > 0 %}
+  <section>
+    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
+      {% if page.theme == "games" %}<span class="muted-text">[PLANNED]</span>{% else %}Planned{% endif %}
+      <span class="text-sm font-normal muted-text">&mdash; {{ planned.size }} {{ page.item_label | default: "items" }}</span>
+    </h2>
+    <div class="grid gap-5" id="planned-list">
+      {% for item in planned %}
+        {% include item_card.html item=item %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</div>
