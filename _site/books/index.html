@@ -656,8 +656,8 @@
     <h1 class="text-5xl md:text-6xl font-bold mb-3 leading-tight" style="font-family: var(--font-heading);">Books</h1>
     <p class="text-lg max-w-xl" style="color: var(--text-muted);">Books I want to read, am reading, and have finished — with notes on what I thought.</p>
     <div class="flex gap-6 mt-6 text-sm font-medium">
-      <span><span class="accent-text font-bold text-xl">2</span> <span class="muted-text">completed</span></span>
-      <span><span style="color: var(--text);" class="font-bold text-xl">3</span> <span class="muted-text">planned</span></span>
+      <span><span class="accent-text font-bold text-xl">1</span> <span class="muted-text">completed</span></span>
+      <span><span style="color: var(--text);" class="font-bold text-xl">4</span> <span class="muted-text">planned</span></span>
     </div>
   </div>
 
@@ -715,9 +715,79 @@
   <section class="mb-14">
     <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
       <span style="color: var(--text-muted); font-style: italic;">On the Shelf</span>
-      <span class="text-sm font-normal muted-text">&mdash; 3 books</span>
+      <span class="text-sm font-normal muted-text">&mdash; 4 books</span>
     </h2>
     <div class="grid gap-5" id="planned-list">
+      
+        
+
+
+<div class="item-card p-5 md:p-6" data-tags="sci-fi favorite audiobook" data-status="planned">
+
+  <!-- Top row: title + status badge -->
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
+        Project Hail Mary
+      </h3>
+
+      <!-- Sub-metadata per category -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
+        <span>by Andy Weir</span>
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="flex flex-col items-end gap-1 shrink-0">
+      
+        <span class="status-badge status-planned">
+          Planned
+        </span>
+      
+    </div>
+  </div>
+
+  <!-- Dates row -->
+  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
+    
+    <span>
+      <span class="uppercase tracking-wider font-semibold">Added</span>
+      &ensp;Jan 15, 2024
+    </span>
+    
+    
+  </div>
+
+  <!-- Notes (planned items) -->
+  
+
+  <!-- Review (completed items) -->
+  
+  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
+    An absolute joy from start to finish. The science is fascinating, the humor is perfectly timed, and the relationship at the heart of the story is genuinely moving. One of my favorite reads in years.
+  </blockquote>
+  
+
+  <!-- Tags -->
+  
+  <div class="flex flex-wrap gap-2 mt-2">
+    
+    <button class="tag-pill" data-tag="sci-fi">#sci-fi</button>
+    
+    <button class="tag-pill" data-tag="favorite">#favorite</button>
+    
+    <button class="tag-pill" data-tag="audiobook">#audiobook</button>
+    
+  </div>
+  
+
+</div>
+
       
         
 
@@ -931,109 +1001,9 @@
   <section>
     <h2 class="text-2xl font-bold mb-6 flex items-center gap-3" style="font-family: var(--font-heading);">
       <span style="color: var(--accent); font-style: italic;">Read</span>
-      <span class="text-sm font-normal muted-text">&mdash; 2 books</span>
+      <span class="text-sm font-normal muted-text">&mdash; 1 books</span>
     </h2>
     <div class="grid gap-5" id="done-list">
-      
-        
-
-
-<div class="item-card p-5 md:p-6" data-tags="sci-fi favorite audiobook" data-status="completed">
-
-  <!-- Top row: title + status badge -->
-  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
-    <div class="flex-1 min-w-0">
-      <h3 class="text-xl font-bold leading-snug" style="font-family: var(--font-body); color: var(--text);">
-        Project Hail Mary
-      </h3>
-
-      <!-- Sub-metadata per category -->
-      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-sm" style="color: var(--text-muted);">
-        <span>by Andy Weir</span>
-        
-        
-        
-        
-        
-        
-      </div>
-    </div>
-
-    <div class="flex flex-col items-end gap-1 shrink-0">
-      
-        <span class="status-badge status-completed">
-          Completed
-        </span>
-        
-        <div class="star-rating mt-1" title="5/5">
-          
-            
-              <span>★</span>
-            
-          
-            
-              <span>★</span>
-            
-          
-            
-              <span>★</span>
-            
-          
-            
-              <span>★</span>
-            
-          
-            
-              <span>★</span>
-            
-          
-        </div>
-        
-      
-    </div>
-  </div>
-
-  <!-- Dates row -->
-  <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs mb-3" style="color: var(--text-muted); font-family: var(--font-body);">
-    
-    <span>
-      <span class="uppercase tracking-wider font-semibold">Added</span>
-      &ensp;Jan 15, 2024
-    </span>
-    
-    
-    <span>
-      <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
-      &ensp;Mar 20, 2024
-    </span>
-    
-  </div>
-
-  <!-- Notes (planned items) -->
-  
-
-  <!-- Review (completed items) -->
-  
-  <blockquote class="text-sm leading-relaxed mb-4 pl-3 border-l-2" style="border-color: var(--accent); color: var(--text);">
-    An absolute joy from start to finish. The science is fascinating, the humor is perfectly timed, and the relationship at the heart of the story is genuinely moving. One of my favorite reads in years.
-  </blockquote>
-  
-
-  <!-- Tags -->
-  
-  <div class="flex flex-wrap gap-2 mt-2">
-    
-    <button class="tag-pill" data-tag="sci-fi">#sci-fi</button>
-    
-    <button class="tag-pill" data-tag="favorite">#favorite</button>
-    
-    <button class="tag-pill" data-tag="audiobook">#audiobook</button>
-    
-  </div>
-  
-
-</div>
-
       
         
 
@@ -1104,7 +1074,7 @@
     
     <span>
       <span class="uppercase tracking-wider font-semibold" style="color: var(--accent);">Done</span>
-      &ensp;May 10, 2024
+      &ensp;May 10, 2025
     </span>
     
   </div>

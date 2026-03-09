@@ -1,10 +1,8 @@
-
-
 - title: "The Witcher 3: Wild Hunt"
   platform: PC
   genre: crpg
   status: planned
-  planned_date: 2026-07-01
+  planned_date: 2026-05-01
   notes: "Game of the decade apparently. "
   tags: [rpg, open-world, story-rich]
 
@@ -38,4 +36,20 @@
   status: planned
   planned_date: 2027-05-01
   notes: "A masterpiece of storytelling and open-world design. I've heard so many great things about this game and I can't wait to dive into the world of the Wild West."
+  tags: [action, adventure, open-world, story-rich]
+
+- title: "Mafia III: Definitive Edition"
+  platform: PC
+  genre: action-adventure
+  status: planned
+  planned_date: 2027-06-01
+  notes: "Looking forward to play this classic with updated graphics and quality of life improvements."
+  tags: [action, adventure, open-world, story-rich]
+
+- title: "LA Noire"
+  platform: PC
+  genre: action-adventure
+  status: planned
+  planned_date: 2027-09-01
+  notes: "Looking forward to play this classic with updated graphics and quality of life improvements."
   tags: [action, adventure, open-world, story-rich]
